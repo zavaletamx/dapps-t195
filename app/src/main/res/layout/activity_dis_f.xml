@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisFActivity">
+
+    <!-- NestedScrollView SOLO permite CONTENER UN HIJO DIRECTO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro"
+            android:textAlignment="center"
+            android:layout_marginVertical="30dp"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/mi_imagen"
+            android:layout_marginBottom="15dp"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:hint="Nombre completo"
+            android:inputType="textPersonName"
+            android:layout_marginVertical="5dp"/>
+
+        <!-- INDICAMOS UN PESO PARA REALIZAR UN DISEÑO
+        FLUIDO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp">
+
+            <!-- *Hack Para usar un diseño
+            Fluido debes indicar un width = 1dp
+            -->
+        <EditText
+            android:layout_width="1dp"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono (10 dígitos)"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:layout_marginVertical="5dp" />
+
+        <EditText
+            android:layout_width="1dp"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            android:hint="Confirma teléfono"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:layout_marginVertical="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:weightSum="12">
+
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:hint="Pin (6 dígitos)"
+                android:maxLength="6"
+                android:inputType="numberPassword" />
+
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:hint="Confirma Pin"
+                android:maxLength="6"
+                android:inputType="numberPassword" />
+
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:maxLength="70" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirma e-mail"
+            android:inputType="textEmailAddress"
+            android:maxLength="70"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="12"
+            android:orientation="horizontal"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp">
+
+            <!-- Falta programar el DatePicker (NO FUNCIONA) -->
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:hint="F. Nac"
+                android:inputType="date"/>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mujer"/>
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hombre" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Spinner es el equivalñente a <select> de html, muestra
+            una lista de elementos
+             ÇFalta programarse (NO SIRVE) -->
+            <!-- Spinner de Edo. Nac. -->
+            <Spinner
+                android:layout_width="1dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content" />
+
+            <!-- Spinner de Tipo Sang. -->
+            <Spinner
+                android:layout_width="1dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="12"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp">
+
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:hint="Matrícula"
+                android:maxLength="10"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:hint="Grupo actual"
+                android:maxLength="5"
+                android:inputType="textPersonName"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="12"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="1dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:hint="Prom. Último C."
+                android:maxLength="5"
+                android:inputType="numberDecimal"/>
+
+            <!-- Spinner de carreras -->
+            <Spinner
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6" />
+
+        </LinearLayout>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Acepto los términos y condiciones"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarme"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="15dp"
+            android:drawableLeft="@drawable/ic_registro"
+            android:onClick="miPrimerClick"/>
+
+        <!--
+        Todos los id de referencia deben cumplir estas reglas
+        1.- minusculas, sin espacios ni guiones
+        2.- Debe iniciar con la nomenclatura @+id/
+
+        TIP:
+        ****** tipo_accion ******
+        btn_registro
+        btn_regresar
+        sw_terminos
+        et_promedio
+         -->
+        <Button
+            android:id="@+id/btn_regresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="15dp"
+            android:drawableLeft="@drawable/ic_arrow_back" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
