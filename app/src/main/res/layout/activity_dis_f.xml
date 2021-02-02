@@ -28,6 +28,7 @@
 
 
         <EditText
+            android:id="@+id/et_nombre_completo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -226,6 +227,10 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="15dp"/>
 
+        <!--
+        ACTUALIZAMOS EL METODO CLICK DEL BOTON
+        DE REGISTRO PARA VALIDAR EL FORMULARIO
+        -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -234,7 +239,7 @@
             android:layout_marginHorizontal="15dp"
             android:padding="15dp"
             android:drawableLeft="@drawable/ic_registro"
-            android:onClick="miPrimerClick"/>
+            android:onClick="validaFormulario"/>
 
         <!--
         Todos los id de referencia deben cumplir estas reglas
