@@ -33,4 +33,11 @@ public class LoginActivity extends AppCompatActivity {
                 RegistroActivity.class
         ));
     }
+
+    public void navListView(View v) {
+        startActivity(new Intent(
+                LoginActivity.this,
+                EjemploListviewActivity.class
+        ));
+    }
 }

@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto195">
-        <activity android:name=".RegistroActivity" android:label="Registro" />
+
+        <activity
+            android:name=".EjemploListviewActivity"
+            android:label="Ejemplo ListView"/>
+
+        <activity
+            android:name=".RegistroActivity"
+            android:label="Registro" />
+
         <activity
             android:name=".LoginActivity"
             android:label="Baicatelas">
