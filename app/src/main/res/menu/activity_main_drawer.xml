@@ -4,17 +4,31 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_inicio"
+            android:title="Inicio"
+            android:icon="@drawable/ic_home"/>
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_cuenta"
+            android:title="Mi cuenta"
+            android:icon="@drawable/ic_person"/>
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_catalogo"
+            android:title="Catálogo"
+            android:icon="@drawable/ic_bike"/>
+
+        <item
+            android:id="@+id/nav_lista_deseos"
+            android:title="Lista de deseos"
+            android:icon="@drawable/ic_list"/>
+
+        <item
+            android:id="@+id/nav_carrito"
+            android:title="Carrito de compras"
+            android:icon="@drawable/ic_shopping_cart"/>
+
     </group>
 </menu>

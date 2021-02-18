@@ -1,13 +1,19 @@
 package mx.edu.uteq.dapps.proyecto195;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,10 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private AlertDialog.Builder alerta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        alerta = new AlertDialog.Builder(MainActivity.this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -39,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_inicio,
+                R.id.nav_cuenta,
+                R.id.nav_catalogo,
+                R.id.nav_lista_deseos,
+                R.id.nav_carrito)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -47,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
+    //Vincula el menu izquierdo
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -59,5 +75,53 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    /**
+     * Programamos el click de cada elemento
+     * del menu izquiero
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        /*
+        Evaluar cual de todos los menus fue el seleccionado
+         */
+        switch (item.getItemId()) {
+            //Si el menu seleccionado es salir
+            case R.id.m_salir:
+                salir();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Modificamos el comportamiento del boton back para que
+     * pregunte si deseamos salir
+     */
+    @Override
+    public void onBackPressed() {
+        salir();
+    }
+
+    /**
+     * Método que muestra la alerta para salir
+     */
+    public void salir () {
+        alerta.setTitle("Cerrar sesiíon")
+                .setMessage("¿Realmente deseas salir?")
+                .setIcon(R.drawable.salir)
+                .setNegativeButton("Cancelar", null)
+                .setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(
+                                MainActivity.this,
+                                LoginActivity.class
+                        ));
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 }
