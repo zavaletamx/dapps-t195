@@ -40,4 +40,11 @@ public class LoginActivity extends AppCompatActivity {
                 EjemploListviewActivity.class
         ));
     }
+
+    public void navWebService(View v) {
+        startActivity(new Intent(
+                LoginActivity.this,
+                EjemploWebServiceActivity.class
+        ));
+    }
 }

@@ -94,6 +94,18 @@
             android:backgroundTint="#000"
             android:textColor="#fff"
             android:onClick="navListView"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ejemplo WebService"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:padding="20dp"
+            android:backgroundTint="#000"
+            android:textColor="#fff"
+            android:onClick="navWebService"/>
         
 
     </LinearLayout>
