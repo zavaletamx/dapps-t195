@@ -74,8 +74,8 @@ public class EjemploWebServiceActivity extends AppCompatActivity {
          */
         petServidor = new StringRequest(
                 Request.Method.GET,
-                // "https://zavaletazea.dev/json.php",
-                "http://192.168.0.15/json.php",
+                // "http://192.168.0.15/json.php",
+                "https://zavaletazea.dev/json.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

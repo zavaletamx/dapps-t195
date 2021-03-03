@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     public void navRegistro(View v) {
         startActivity(new Intent(
                 LoginActivity.this,
-                RegistroActivity.class
+                RegistroActivityWs.class
         ));
     }
 
