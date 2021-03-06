@@ -93,7 +93,7 @@ public class RegistroActivityWs extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 /* Agregamos cada elemento como variable del servicio */
                 params.put("tel", tel);
-                params.put("pin", MD5_Hash(pin));
+                params.put("pin", AppHelper.MD5_Hash(pin));
 
                 return params;
             }
@@ -108,18 +108,6 @@ public class RegistroActivityWs extends AppCompatActivity {
         ));
     }
 
-    public String MD5_Hash(String s) {
-        MessageDigest m = null;
 
-        try {
-            m = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-        m.update(s.getBytes(),0,s.length());
-        String hash = new BigInteger(1, m.digest()).toString(16);
-        return hash;
-    }
 
 }
