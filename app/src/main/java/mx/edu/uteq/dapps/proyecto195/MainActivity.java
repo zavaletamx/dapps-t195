@@ -2,6 +2,7 @@ package mx.edu.uteq.dapps.proyecto195;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,12 +29,21 @@ public class MainActivity extends AppCompatActivity {
 
     private AlertDialog.Builder alerta;
 
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor prefsEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         alerta = new AlertDialog.Builder(MainActivity.this);
+
+        /*
+        Inicializamos la referencia al archivo SP
+         */
+        prefs = getSharedPreferences("ma_datos", MODE_PRIVATE);
+        prefsEditor = prefs.edit();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -115,6 +125,20 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Salir", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        /*
+                        Eliminar los registros almacenados de este
+                        usuario en archivo SharedPreferences
+
+                        Forma 1 (Eliminar un valor específico del workspace)
+                        prefsEditor.remove("id");
+                        prefsEditor.remove("tel");
+
+                        Forma 2 (Eliminar TODOS LOS VALORES del workspace
+                        prefsEditor.clear();
+                        */
+                        prefsEditor.clear();
+                        prefsEditor.commit();
+
                         startActivity(new Intent(
                                 MainActivity.this,
                                 LoginActivity.class

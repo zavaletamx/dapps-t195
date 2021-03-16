@@ -4,6 +4,7 @@ package mx.edu.uteq.dapps.proyecto195.components;
  * Creamos una clase con los atributos necesarios que deseamos
  * mostrar en nuestro ListView personalizado
  *
+ * POJO (Plain Old Java Object)
  */
 public class Bici {
 

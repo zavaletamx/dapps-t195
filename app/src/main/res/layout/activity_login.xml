@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username"
+                android:text="4422048329"
                 android:drawableLeft="@drawable/ic_person"
                 android:maxLength="50"
                 android:inputType="textEmailAddress"/>
@@ -57,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pin (6 dígitos)"
+                android:text="123456"
                 android:drawableLeft="@drawable/ic_lock"
                 android:maxLength="6"
                 android:inputType="numberPassword"/>

@@ -38,6 +38,7 @@ public class CatalogoFragment extends Fragment {
         nuestro listview
          */
         bicis = new ArrayList<>();
+
         Bici bici = new Bici();
         bici.setBiciId(1);
         bici.setImagen("https://images.immediate.co.uk/production/volatile/sites/21/2019/03/scott-scale-965-01-1481205297829-1r14z865tf1y-d3d5ff9.jpg");

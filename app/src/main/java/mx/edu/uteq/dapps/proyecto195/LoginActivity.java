@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -36,6 +37,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private final String BASE_URL = "https://zavaletazea.dev/api-195/";
 
+    /*
+    Para acceder al archivo global SharedPreferences necesitamos
+    una referencia a un objeto de tipo SharedPeferences
+     */
+    private SharedPreferences prefs;
+
+    /*
+    Para escribir (agregar, modificar o eliminar) una entrada de SharedPreferences
+    Necesitamos un atributo de tipo Editor
+     */
+    private SharedPreferences.Editor prefsEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +62,38 @@ public class LoginActivity extends AppCompatActivity {
         alerta = new AlertDialog.Builder(LoginActivity.this);
 
         conexionServidor = Volley.newRequestQueue(LoginActivity.this);
+
+        /*
+        Inicializamos la referencia al archivo SharedPreferences
+        El método getSharedPreferences usa dos parámetros:
+        1.- El nombre del workspace
+        2.- El tipo de apertura
+         */
+        prefs = getSharedPreferences("ma_datos", MODE_PRIVATE);
+
+        //Generamos una referencia de edición
+        prefsEditor = prefs.edit();
+
+        /*
+        Una vez que se generó la referencia a nuestro espacio de trabajo
+        Podemos agregar claves/valores por medio del método .set{_TIPO_DATOI_}()
+        Podemos leer claves/valores por medio del método .get{_TIPO_DATOI_}()
+         */
+
+        //Guardamos el id del usuario, pero si no existe, guardamos nulo en la variable
+        final String idUsuario = prefs.getString("id", null);
+
+        /*
+        Si el valor de idUsuario ES DIFERENTE A NULO
+        Redireccionamos al Home
+         */
+        if (idUsuario != null) {
+            startActivity(new Intent(
+                    LoginActivity.this,
+                    MainActivity.class
+            ));
+        }
+
 
     } //ONCREATE
 
@@ -124,6 +169,18 @@ public class LoginActivity extends AppCompatActivity {
                                 Creamos un objeto de los datos del usuario
                                  */
                                 JSONObject datosUsuario = objRespuesta.getJSONObject("datos_usuario");
+
+                                /*
+                                Escribimos en nuestro archivo SP
+                                Los valores del servicio
+                                 */
+                                prefsEditor.putString("id", datosUsuario.getString("id"));
+                                prefsEditor.putString("tel", datosUsuario.getString("tel"));
+
+                                /*
+                                Grabamos los cambios en el archivo
+                                 */
+                                prefsEditor.commit();
 
                                 alerta.setTitle("Bienvenido")
                                         .setMessage("Hola de nuevo\n" + datosUsuario.getString("tel"))
