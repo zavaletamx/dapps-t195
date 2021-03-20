@@ -9,10 +9,37 @@ package mx.edu.uteq.dapps.proyecto195.components;
 public class Bici {
 
     private int biciId;
+    private String imagen;
     private String modelo;
     private String categoria;
-    private String imagen;
     private int calificacion;
+    private double precio;
+    private String descripcion;
+    private int activo;
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
 
     public int getBiciId() {
         return biciId;
