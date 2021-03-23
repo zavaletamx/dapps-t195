@@ -84,6 +84,7 @@ public class ProductoAdapter extends BaseAdapter {
         Vinculamos los elementos de la vista con variables locales
          */
         ImageView ivImagen = convertView.findViewById(R.id.iv_imagen);
+        TextView tvProductoId = convertView.findViewById(R.id.tv_producto_id);
         TextView tvModelo = convertView.findViewById(R.id.tv_modelo);
         TextView tvCategoria = convertView.findViewById(R.id.tv_categoria);
         TextView tvCalificacion = convertView.findViewById(R.id.tv_calif);
@@ -95,6 +96,7 @@ public class ProductoAdapter extends BaseAdapter {
          * la variable position
          */
         Picasso.get().load(bicis.get(position).getImagen()).into(ivImagen);
+        tvProductoId.setText(String.valueOf(bicis.get(position).getBiciId()));
         tvModelo.setText(bicis.get(position).getModelo());
         tvCategoria.setText(bicis.get(position).getCategoria());
 

@@ -1,12 +1,15 @@
 package mx.edu.uteq.dapps.proyecto195.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.edu.uteq.dapps.proyecto195.ProductoActivity;
 import mx.edu.uteq.dapps.proyecto195.R;
 import mx.edu.uteq.dapps.proyecto195.components.Bici;
 import mx.edu.uteq.dapps.proyecto195.components.ProductoAdapter;
@@ -88,6 +92,34 @@ public class CatalogoFragment extends Fragment {
         productoAdapter = new ProductoAdapter(getActivity(), bicis);
         lvCatalogo.setAdapter(productoAdapter);
 
+        /*
+        Evento touch / click de un elemento del ListView de catálogo
+         */
+        lvCatalogo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Creamos un TextView para recuperar el id del producto
+                final TextView tvProductoId = view.findViewById(R.id.tv_producto_id);
+                final String productoId = tvProductoId.getText().toString();
+
+                /*
+                Es posible enviar valores entre activities por medio de un Extra
+                eso significsa que podemos compartir datos entre pantallas
+
+                putExtra("nombre_valor", valor);
+                 */
+
+                //Lanzar el activity Detalle para
+                //mostrar el detalle de cada producto
+                startActivity(
+                    new Intent(
+                        getContext(),
+                        ProductoActivity.class
+                    )
+                    .putExtra("id", productoId)
+                );
+            }
+        });
 
         return fragmentView;
     } //onCreateView

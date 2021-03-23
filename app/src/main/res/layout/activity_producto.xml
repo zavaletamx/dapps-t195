@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductoActivity"
+    android:id="@+id/srl_producto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_producto"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/bici"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_modelo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:text="_TITULO_"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="12"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_categoria"
+                    android:layout_width="1dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"
+                    android:text="_CATEGORIA_"
+                    android:layout_marginHorizontal="10dp"
+                    android:drawableLeft="@drawable/ic_image"
+                    android:drawablePadding="10dp"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_calif"
+                    android:layout_width="1dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"
+                    android:text="★★★"
+                    android:letterSpacing="0.3"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="#ffc107"
+                    android:textAlignment="textEnd"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="asd asd asd"
+                android:layout_margin="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="12"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_shopping_cart"
+                    android:drawableTint="#fff"
+                    android:text="+ Carrito"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="20dp"/>
+
+                <Button
+                    android:layout_width="1dp"
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_list"
+                    android:drawableTint="#fff"
+                    android:text="+ Lista"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="20dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -12,8 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto195"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegistroActivityWs"></activity>
+        <activity
+            android:name=".ProductoActivity"
+            android:label="Detalle de producto"/>
+
+        <activity android:name=".RegistroActivityWs" />
+
         <activity android:name=".EjemploWebServiceActivity" />
+
         <activity
             android:name=".EjemploListviewActivity"
             android:label="Ejemplo ListView" />
